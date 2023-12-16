@@ -1,5 +1,7 @@
 import pygame
 import os
+from scripts.game import Game
+from scripts.functions import load_image
 
 class App():
     def __init__(self):
@@ -12,7 +14,7 @@ class App():
         self.game = Game()
         
         pygame.display.set_caption('doodle jump')
-        pygame.display.set_icon(pygame.image.load(os.path.join("assets","icons","icon.ico")))
+        pygame.display.set_icon(load_image("assets","icons","icon.ico"))
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

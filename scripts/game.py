@@ -1,8 +1,13 @@
 import pygame
 import os
+from scripts.functions import load_image
+from scripts.sprite import Sprite
+
 
 class Game():
     def __init__(self):
-        self.background = pygame.display.set_icon(pygame.image.load(os.path.join("assets","icons","icon.ico")))
+        self.background = load_image("assets","images","background.png")
+        self.player = Sprite((200,200), load_image("assets","images","player.png"))
     def render(self,surface: pygame.Surface):
         surface.blit(self.background, (0,0))        #взяла у дениса-лучшего на всём белом свете лоха
+        self.player.render(surface)
